@@ -61,6 +61,7 @@ exports.sourceNodes = async (
 
     do {
       let args = per_page ? { per_page, page } : { page };
+      WooCommerce.axiosConfig.params.page = page;
       await WooCommerce.get(fieldName, args)
         .then((response) => {
           if (response.status === 200) {
